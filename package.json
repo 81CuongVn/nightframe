@@ -1,0 +1,89 @@
+{
+  "name": "@nightcloud/app-framework",
+  "version": "0.0.1",
+  "author": {
+    "name": "Pine View Software AS",
+    "email": "hello@pineview.io"
+  },
+  "contributors": [
+    "Andrei Rusu <andrei@nightcloud.io>"
+  ],
+  "homepage": "https://nightcloud.io",
+  "main": "./lib/index.js",
+  "bin": {
+    "appserver": "./bin/app-server"
+  },
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "browser": false,
+      "es6": true,
+      "node": true
+    },
+    "globals": {
+      "Promise": true,
+      "Reflect": true
+    },
+    "rules": {
+      "eqeqeq": [
+        "warn",
+        "smart"
+      ],
+      "curly": [
+        "error",
+        "all"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "error"
+          ]
+        }
+      ],
+      "no-debugger": 1,
+      "no-trailing-spaces": 0,
+      "no-else-return": 0,
+      "no-extra-bind": 0,
+      "no-implicit-coercion": 0,
+      "no-useless-call": 0,
+      "no-return-assign": 0,
+      "eol-last": 0,
+      "no-unused-vars": 0,
+      "no-extra-semi": 1,
+      "no-underscore-dangle": 0,
+      "no-lone-blocks": 0,
+      "one-var": [
+        "error",
+        "never"
+      ]
+    }
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.17",
+    "html-webpack-harddisk-plugin": "^0.1.0",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chalk": "^2.3.0",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "helmet": "^3.9.0",
+    "lodash.defaultsdeep": "^4.6.0",
+    "lodash.merge": "^4.6.0",
+    "mkdirp": "^0.5.1",
+    "morgan": "^1.9.0",
+    "uuid": "^3.1.0",
+    "vue": "^2.5.13",
+    "winston": "^2.4.0"
+  }
+}
