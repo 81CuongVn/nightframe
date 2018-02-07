@@ -12,7 +12,8 @@
   "homepage": "https://nightcloud.io",
   "main": "./lib/index.js",
   "bin": {
-    "appserver": "./bin/app-server"
+    "appserver": "./bin/app-server",
+    "appbuild": "./bin/build"
   },
   "license": "MIT",
   "eslintConfig": {
