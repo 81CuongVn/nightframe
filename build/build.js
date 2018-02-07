@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const chalk = require('chalk');
 
 module.exports = function(config) {
+  console.log(chalk.cyan(`Generating Webpack bundle for ${chalk.blueBright(process.env.NODE_ENV)} environment...`));
+
   webpack(config).run(function (err, stats) {
     if (err) { // so a fatal error occurred. Stop here.
       console.error(chalk.red(err));
@@ -24,8 +26,9 @@ module.exports = function(config) {
       });
     }
 
-    console.log('Webpack stats:');
-    console.log(stats);
+    console.log(chalk.bold.green('Finished.'));
+    //console.log('Webpack stats:');
+    //console.log(stats);
 
     return 0;
   });

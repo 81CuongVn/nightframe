@@ -5,4 +5,4 @@ const Webpack = require('../build/build.js');
 const instance = new AppSettings();
 const settings = instance.settings;
 
-Webpack(settings);
+Webpack(settings.webpack);
