@@ -8,17 +8,17 @@ const Util = module.exports = {};
 Util.fileExistsSync = function (path) {
   try {
     return fs.statSync(path).isFile();
-  } catch (e) {}
-
-  return false;
+  } catch (e) {
+    return false;
+  }
 };
 
 Util.dirExistsSync = function (path) {
   try {
     return fs.statSync(path).isDirectory();
-  } catch (e) {}
-
-  return false;
+  } catch (e) {
+    return false;
+  }
 };
 
 Util.stackTraceFilter = function(parts) {
