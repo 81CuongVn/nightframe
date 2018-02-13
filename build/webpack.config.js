@@ -9,6 +9,11 @@ module.exports = {
     new CleanWebpackPlugin([path.resolve('dist')], {
       allowExternal: true
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
     new HtmlWebpackPlugin({
       alwaysWriteToDisk: true,
       template: path.resolve('views/index.ejs.html'),
