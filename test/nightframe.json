@@ -1,0 +1,8 @@
+{
+  "default": {
+    "test-config": "${ENV_VAR,default-value}",
+    "app": {
+      "environment": "${NIGHT_ENV}"
+    }
+  }
+}

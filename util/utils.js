@@ -22,7 +22,7 @@ Util.dirExistsSync = function (path) {
 };
 
 Util.stackTraceFilter = function(parts) {
-  let stack = parts.reduce(function(list, line) {
+  const stack = parts.reduce(function(list, line) {
     if (contains(line, [
         'node_modules',
         '(node.js:',

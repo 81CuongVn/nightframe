@@ -1,6 +1,6 @@
 {
-  "name": "@nightcloud/app-framework",
-  "version": "0.0.7",
+  "name": "nightframe",
+  "version": "0.0.1",
   "author": {
     "name": "Pine View Software AS",
     "email": "hello@pineview.io"
@@ -12,7 +12,7 @@
   "homepage": "https://nightcloud.io",
   "main": "./lib/index.js",
   "bin": {
-    "appserver": "./bin/app-server",
+    "nightframe": "./bin/nightframe.js",
     "appbuild": "./bin/build"
   },
   "scripts": {
@@ -69,11 +69,15 @@
       ]
     }
   },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.17",
     "eslint": "^4.17.0",
     "html-webpack-harddisk-plugin": "^0.1.0",
     "html-webpack-plugin": "^2.30.1",
+    "mocha": "^7.0.0",
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.4"
   },
@@ -81,6 +85,7 @@
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
     "cookie-parser": "^1.4.3",
+    "dotenv": "^8.2.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
@@ -89,7 +94,6 @@
     "mkdirp": "^0.5.1",
     "morgan": "^1.9.0",
     "uuid": "^3.1.0",
-    "vue": "^2.5.13",
-    "winston": "^2.4.0"
+    "winston": "^3.2.1"
   }
 }
