@@ -1,6 +1,6 @@
 {
   "name": "nightframe",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A small Node.js web application framework built on top of Express",
   "author": {
     "name": "Pine View Software AS",
