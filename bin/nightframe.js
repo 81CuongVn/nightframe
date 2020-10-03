@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const path = require('path');
 const Utils = require('../util/utils.js');
 const Nightframe = require('../lib/server.js');
+const CliSetup = require('../lib/cli-setup.js');
 
 function requireApp() {
   const Application = require('../lib/app.js');
@@ -32,12 +33,40 @@ function checkNodeVersion (wanted, id) {
 }
 
 const start = async () => {
-  const Application = requireApp();
-  const appInstance = new Application();
-  await appInstance.init();
+  const {argv} = CliSetup;
 
-  const server = new Nightframe(appInstance.app, appInstance.settings);
-  await server.start();
+  if (argv.help) {
+    CliSetup.showHelp();
+  } else if (argv.info) {
+    console.log('  Environment Info:');
+
+    require('envinfo').run(
+      {
+        System: ['OS', 'CPU'],
+        Binaries: ['Node', 'Yarn', 'npm'],
+        Browsers: ['Chrome', 'Edge', 'Firefox', 'Safari']
+      },
+      {
+        showNotFound: true,
+        duplicates: true,
+        fullTree: true
+      }
+    ).then(console.log);
+  } else if (argv.version) {
+    let packageConfig = require(__dirname + '/../package.json');
+    console.log('  Nightframe:');
+    console.log('    version: ' + packageConfig.version);
+    //console.log('    changelog: https://github.com/nightwatchjs/nightwatch/releases/tag/v' + packageConfig.version + '\n');
+  } else {
+    const Application = requireApp();
+    const appInstance = new Application();
+    await appInstance.init(argv);
+
+    const server = new Nightframe(appInstance.app, appInstance.settings);
+
+    await server.start();
+  }
+
 };
 
 checkNodeVersion(requiredVersion, 'nightframe');

@@ -1,9 +1,0 @@
-#!/usr/bin/env node
-const AppSettings = require('../lib/app-settings.js');
-const Webpack = require('../build/build.js');
-
-const instance = new AppSettings();
-instance.mergeWebpackSettings();
-
-const settings = instance.settings;
-Webpack(settings.webpack);
