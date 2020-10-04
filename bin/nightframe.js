@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 const semver = require('semver');
-const requiredVersion = require('../package.json').engines.node;
-const chalk = require('chalk');
 const path = require('path');
-const Utils = require('../util/utils.js');
-const Nightframe = require('../lib/server.js');
-const CliSetup = require('../lib/cli-setup.js');
+
+// some platforms create a copy of the binary file instead of a symlink
+const frameworkFolder = path.join(__dirname, '../nightframe').replace('node_modules/nightframe/nightframe', 'node_modules/nightframe');
+
+const requiredVersion = require(path.join(frameworkFolder, 'package.json')).engines.node;
+const chalk = require('chalk');
+const Utils = require(path.join(frameworkFolder, 'util/utils.js'));
+const Nightframe = require(path.join(frameworkFolder, 'lib/server.js'));
+const CliSetup = require(path.join(frameworkFolder, 'lib/cli-setup.js'));
 
 function requireApp() {
-  const Application = require('../lib/app.js');
+  const Application = require(path.join(frameworkFolder, 'lib/app.js'));
 
   let userDefined = path.join(process.cwd(), 'app.js');
   if (Utils.fileExistsSync(userDefined)) {
@@ -53,7 +57,7 @@ const start = async () => {
       }
     ).then(console.log);
   } else if (argv.version) {
-    let packageConfig = require(__dirname + '/../package.json');
+    let packageConfig = require(path.join(frameworkFolder, 'package.json'));
     console.log('  Nightframe:');
     console.log('    version: ' + packageConfig.version);
     //console.log('    changelog: https://github.com/nightwatchjs/nightwatch/releases/tag/v' + packageConfig.version + '\n');
