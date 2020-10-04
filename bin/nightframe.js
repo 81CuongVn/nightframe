@@ -3,7 +3,8 @@ const semver = require('semver');
 const path = require('path');
 
 // some platforms create a copy of the binary file instead of a symlink
-const frameworkFolder = path.join(__dirname, '../nightframe').replace('node_modules/nightframe/nightframe', 'node_modules/nightframe');
+const frameworkFolder = path.join(__dirname, '../nightframe')
+  .replace('node_modules/nightframe/nightframe', 'node_modules/nightframe');
 
 const requiredVersion = require(path.join(frameworkFolder, 'package.json')).engines.node;
 const chalk = require('chalk');
