@@ -41,7 +41,7 @@
   ],
   "devDependencies": {
     "eslint": "^4.17.0",
-    "mocha": "^7.0.0"
+    "mocha": "^10.2.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
